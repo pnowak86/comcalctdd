@@ -29,37 +29,46 @@ public class StringCalculatorTest {
 
     private Object[][] dataforTestingOutput() {
         return new Object[][]{
-                {"", 0},
-                {"1", 1},
-                {"1,2", 3},
-                {"7,3", 10},
-                {"120,120", 240}
+              {"11,11", 22},
+            {"20,20", 40},
+              {"120,120", 240},
+                {"100,100,100", 300}
+
         };
     }
 
     @Parameters(method = "dataforTestingOutput")
-
     @Test
     public void shouldReturnProperOutputForGivenInput(String input, int expectetResult) {
-        int result = testedObject.add("1,2");
-        assertThat(result).isEqualTo(3);
+
+        int result = testedObject.add(input);
+        assertThat(result).isEqualTo(expectetResult);
 
     }
+//
+//    @Parameters(method = "dataforTestingOutput")
+//    @Test
+//    public void shouldReturnProperOutputForGivenInput2(String input, int expectetResult) {
+//        int result = testedObject.add("7,3");
+//        assertThat(result).isEqualTo(10);
+//
+//    }
 
-    @Parameters(method = "dataforTestingOutput")
-    @Test
-    public void shouldReturnProperOutputForGivenInput2(String input, int expectetResult) {
-        int result = testedObject.add("7,3");
-        assertThat(result).isEqualTo(10);
+//    @Parameters(method = "dataforTestingOutput")
+//    @Test
+//    public void shouldReturnProperOutputForGivenInput3(String input, int expectetResult) {
+//        int result = testedObject.add("120,120");
+//        assertThat(result).isEqualTo(240);
+//
+//    }
+//
+//    @Parameters(method = "dataforTestingOutput")
+//    @Test
+//    public void shouldReturnProperOutputForGivenInput4(String input, int expectetResult) {
+//        int result = testedObject.add("120,120");
+//        assertThat(result).isEqualTo(240);
+//
+//    }
 
-    }
-
-    @Parameters(method = "dataforTestingOutput")
-    @Test
-    public void shouldReturnProperOutputForGivenInput3(String input, int expectetResult) {
-        int result = testedObject.add("120,120");
-        assertThat(result).isEqualTo(240);
-
-    }
 
 }
